@@ -1,0 +1,1153 @@
+/* ===== PUBLIC SERTIFIKAT - CERTIFICATE PAGE ===== */
+
+/* Root & Animations */
+.ps-root {
+    min-height: 100vh;
+    background: var(--bg-body);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.ps-root.ps-loaded {
+    opacity: 1;
+}
+
+/* Background Mesh */
+.ps-bg-mesh {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.ps-mesh-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.12;
+    animation: psMeshFloat 20s ease-in-out infinite;
+}
+
+.ps-mesh-orb-1 {
+    width: 500px;
+    height: 500px;
+    background: #6366f1;
+    top: -100px;
+    right: -100px;
+    animation-delay: 0s;
+}
+
+.ps-mesh-orb-2 {
+    width: 400px;
+    height: 400px;
+    background: #3b82f6;
+    bottom: -80px;
+    left: -80px;
+    animation-delay: -7s;
+}
+
+.ps-mesh-orb-3 {
+    width: 300px;
+    height: 300px;
+    background: #10b981;
+    top: 40%;
+    left: 50%;
+    animation-delay: -14s;
+}
+
+@keyframes psMeshFloat {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    25% {
+        transform: translate(30px, -30px) scale(1.05);
+    }
+
+    50% {
+        transform: translate(-20px, 20px) scale(0.95);
+    }
+
+    75% {
+        transform: translate(10px, -10px) scale(1.02);
+    }
+}
+
+/* Navbar */
+.ps-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid var(--border-color);
+    padding: 14px 24px;
+}
+
+:root[data-theme="dark"] .ps-navbar,
+.dark .ps-navbar {
+    background: rgba(15, 23, 42, 0.85);
+}
+
+.ps-navbar-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.ps-navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.ps-navbar-logo {
+    height: 36px;
+    width: auto;
+    object-fit: contain;
+}
+
+.ps-navbar-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+}
+
+.ps-navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ps-theme-toggle {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-card);
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.ps-theme-toggle:hover {
+    border-color: var(--accent-blue);
+    color: var(--accent-blue);
+    transform: scale(1.05);
+}
+
+.ps-back-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-card);
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.ps-back-btn:hover {
+    border-color: var(--accent-blue);
+    color: var(--accent-blue);
+    transform: scale(1.05);
+}
+
+/* Hero Section */
+.ps-hero-section {
+    position: relative;
+    z-index: 1;
+    padding: 60px 24px 40px;
+    text-align: center;
+}
+
+.ps-hero-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.ps-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 16px;
+    background: var(--accent-blue-light);
+    border: 1px solid var(--accent-blue-border);
+    border-radius: 100px;
+    color: var(--accent-blue);
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    animation: psFadeUp 0.6s ease-out 0.1s both;
+}
+
+.ps-hero-title {
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--text-primary);
+    line-height: 1.15;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+    animation: psFadeUp 0.6s ease-out 0.2s both;
+}
+
+.ps-hero-gradient-text {
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6, #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.ps-hero-subtitle {
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    max-width: 500px;
+    margin: 0 auto;
+    animation: psFadeUp 0.6s ease-out 0.3s both;
+}
+
+@keyframes psFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Content */
+.ps-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px 60px;
+}
+
+/* Search Section */
+.ps-search-section {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-sm);
+}
+
+.ps-search-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.ps-search-input-wrap {
+    flex: 1;
+    position: relative;
+}
+
+.ps-search-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    color: var(--text-muted);
+    pointer-events: none;
+}
+
+.ps-search-input {
+    width: 100%;
+    background: var(--bg-input);
+    border: 1.5px solid var(--border-color);
+    border-radius: 12px;
+    padding: 12px 14px 12px 42px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+    outline: none;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.ps-search-input:focus {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+}
+
+.ps-search-input::placeholder {
+    color: var(--text-muted);
+}
+
+/* Results Info */
+.ps-results-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    padding: 0 4px;
+}
+
+.ps-results-count {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Table (Desktop) */
+.ps-table-wrap {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.ps-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ps-table thead {
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+}
+
+.ps-table thead th {
+    padding: 14px 16px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.ps-table thead th:first-child {
+    text-align: center;
+    width: 50px;
+}
+
+.ps-table tbody tr {
+    border-bottom: 1px solid var(--border-light);
+    transition: all 0.2s ease;
+}
+
+.ps-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.ps-table tbody tr:hover {
+    background: var(--bg-input);
+}
+
+.ps-table tbody tr:nth-child(even) {
+    background: var(--bg-input);
+}
+
+.ps-table tbody tr:nth-child(even):hover {
+    background: var(--border-light);
+}
+
+.ps-table tbody td {
+    padding: 14px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+    vertical-align: middle;
+}
+
+.ps-table tbody td:first-child {
+    text-align: center;
+    font-weight: 700;
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+.ps-table .ps-nama-cell {
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+/* Certificate Link Buttons */
+.ps-cert-links {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.ps-cert-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    border: 1.5px solid transparent;
+}
+
+.ps-cert-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+}
+
+.ps-cert-btn:active {
+    transform: translateY(0);
+}
+
+.ps-cert-btn svg {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+}
+
+.ps-cert-lankor {
+    background: rgba(239, 68, 68, 0.08);
+    color: #dc2626;
+    border-color: rgba(239, 68, 68, 0.2);
+}
+
+.ps-cert-lankor:hover {
+    background: rgba(239, 68, 68, 0.15);
+    border-color: rgba(239, 68, 68, 0.35);
+}
+
+.ps-cert-icca {
+    background: rgba(59, 130, 246, 0.08);
+    color: #2563eb;
+    border-color: rgba(59, 130, 246, 0.2);
+}
+
+.ps-cert-icca:hover {
+    background: rgba(59, 130, 246, 0.15);
+    border-color: rgba(59, 130, 246, 0.35);
+}
+
+.ps-cert-sportunys {
+    background: rgba(16, 185, 129, 0.08);
+    color: #059669;
+    border-color: rgba(16, 185, 129, 0.2);
+}
+
+.ps-cert-sportunys:hover {
+    background: rgba(16, 185, 129, 0.15);
+    border-color: rgba(16, 185, 129, 0.35);
+}
+
+.ps-cert-disabled {
+    background: var(--bg-input);
+    color: var(--text-muted);
+    border-color: var(--border-color);
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.ps-cert-disabled:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+/* Card view (mobile) */
+.ps-cards {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.ps-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 18px;
+    transition: all 0.25s ease;
+    animation: psCardSlide 0.3s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes psCardSlide {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.ps-card:nth-child(1) { animation-delay: 0.02s; }
+.ps-card:nth-child(2) { animation-delay: 0.04s; }
+.ps-card:nth-child(3) { animation-delay: 0.06s; }
+.ps-card:nth-child(4) { animation-delay: 0.08s; }
+.ps-card:nth-child(5) { animation-delay: 0.10s; }
+
+.ps-card:hover {
+    border-color: var(--accent-blue-border);
+    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.1);
+    transform: translateY(-2px);
+}
+
+.ps-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.ps-card-number {
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #3b82f6, #6366f1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 800;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.ps-card-name {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--text-primary);
+    flex: 1;
+    min-width: 0;
+    word-break: break-word;
+}
+
+.ps-card-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.ps-card-detail-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.ps-card-detail-item svg {
+    width: 13px;
+    height: 13px;
+    opacity: 0.7;
+    flex-shrink: 0;
+}
+
+.ps-card-detail-item span {
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.ps-card-certs {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+/* Empty State */
+.ps-empty-state {
+    padding: 80px 24px;
+    text-align: center;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+}
+
+.ps-empty-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 20px;
+    background: var(--bg-input);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+/* Footer */
+.ps-footer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 24px;
+    border-top: 1px solid var(--border-color);
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .ps-hero-section {
+        padding: 40px 16px 24px;
+    }
+
+    .ps-hero-title {
+        font-size: 26px;
+    }
+
+    .ps-hero-subtitle {
+        font-size: 14px;
+    }
+
+    .ps-content {
+        padding: 0 12px 48px;
+    }
+
+    .ps-table-wrap {
+        display: none;
+    }
+
+    .ps-cards {
+        display: flex;
+    }
+
+    .ps-search-row {
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 769px) {
+    .ps-cards {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .ps-hero-title {
+        font-size: 22px;
+    }
+
+    .ps-navbar {
+        padding: 10px 16px;
+    }
+
+    .ps-navbar-title {
+        font-size: 14px;
+    }
+
+    .ps-card {
+        padding: 14px;
+    }
+}
+
+/* ===== SORT CONTROLS ===== */
+.ps-sort-wrap {
+    position: relative;
+    flex: 0 0 auto;
+    min-width: 160px;
+}
+
+.ps-sort-icon-prefix {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 15px;
+    color: var(--text-muted);
+    pointer-events: none;
+}
+
+.ps-sort-select {
+    width: 100%;
+    padding: 12px 36px 12px 36px;
+    background: var(--bg-input);
+    border: 1.5px solid var(--border-color);
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+    outline: none;
+    cursor: pointer;
+    font-family: inherit;
+    appearance: none;
+    -webkit-appearance: none;
+    transition: all 0.2s ease;
+}
+
+.ps-sort-select:focus {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+}
+
+.ps-sort-chevron {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 14px;
+    height: 14px;
+    color: var(--text-muted);
+    pointer-events: none;
+}
+
+.ps-sort-dir-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    border: 1.5px solid var(--border-color);
+    background: var(--bg-input);
+    color: var(--accent-blue);
+    font-size: 18px;
+    font-weight: 800;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.ps-sort-dir-btn:hover {
+    border-color: var(--accent-blue);
+    background: var(--accent-blue-light);
+    transform: scale(1.05);
+}
+
+/* Sortable table headers */
+.ps-th-sortable {
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.2s ease;
+}
+
+.ps-th-sortable:hover {
+    color: rgba(255, 255, 255, 0.75) !important;
+}
+
+.ps-sort-indicator {
+    font-size: 11px;
+    opacity: 0.85;
+}
+
+/* ===== CERT BUTTONS: button-element resets (don't override color classes) ===== */
+button.ps-cert-btn {
+    cursor: pointer;
+    font-family: inherit;
+    outline: none;
+}
+
+/* ===== PASSWORD CONFIRMATION MODAL ===== */
+.ps-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    animation: psModalFadeIn 0.2s ease-out;
+}
+
+@keyframes psModalFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.ps-password-card {
+    position: relative;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    padding: 40px 36px 36px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15), 0 4px 20px rgba(0, 0, 0, 0.08);
+    animation: psFadeUp 0.3s ease-out;
+}
+
+.ps-modal-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-input);
+    color: var(--text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.ps-modal-close:hover {
+    border-color: var(--accent-rose-border, #fecdd3);
+    color: var(--accent-rose, #f43f5e);
+    background: var(--accent-rose-light, #fff1f2);
+}
+
+.ps-password-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(99, 102, 241, 0.3);
+}
+
+.ps-password-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+}
+
+.ps-password-subtitle {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.ps-password-subtitle strong {
+    color: var(--text-secondary);
+    font-weight: 700;
+}
+
+.ps-password-nama {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 24px;
+    padding: 8px 16px;
+    background: var(--bg-input);
+    border-radius: 10px;
+    display: inline-block;
+    border: 1px solid var(--border-color);
+}
+
+.ps-password-inputs {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.ps-password-digit {
+    width: 60px;
+    height: 68px;
+    border-radius: 14px;
+    border: 2px solid var(--border-color);
+    background: var(--bg-input);
+    font-size: 26px;
+    font-weight: 800;
+    text-align: center;
+    color: var(--text-primary);
+    outline: none;
+    transition: all 0.2s ease;
+    font-family: inherit;
+    caret-color: var(--accent-blue);
+}
+
+.ps-password-digit:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+    transform: scale(1.05);
+}
+
+.ps-password-digit.ps-digit-filled {
+    border-color: #6366f1;
+    background: rgba(99, 102, 241, 0.06);
+}
+
+.ps-password-digit.ps-digit-error {
+    border-color: #ef4444;
+    background: rgba(239, 68, 68, 0.06);
+}
+
+.ps-password-digit.ps-digit-error:focus {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.12);
+}
+
+.ps-password-error {
+    color: #ef4444;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    animation: psFadeUp 0.3s ease-out;
+}
+
+.ps-password-hint {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-top: 4px;
+    line-height: 1.5;
+}
+
+.ps-password-hint strong {
+    color: var(--text-secondary);
+}
+
+/* Shake animation for wrong password */
+.ps-shake {
+    animation: psShake 0.5s ease-in-out;
+}
+
+@keyframes psShake {
+    0%, 100% { transform: translateX(0); }
+    10% { transform: translateX(-8px); }
+    20% { transform: translateX(8px); }
+    30% { transform: translateX(-6px); }
+    40% { transform: translateX(6px); }
+    50% { transform: translateX(-4px); }
+    60% { transform: translateX(4px); }
+    70% { transform: translateX(-2px); }
+    80% { transform: translateX(2px); }
+}
+
+/* ===== ADMIN HELP (after 3 failed attempts) ===== */
+.ps-admin-help {
+    padding: 14px;
+    border-radius: 12px;
+    background: var(--bg-input);
+    border: 1px solid var(--border-color);
+    margin-bottom: 12px;
+    text-align: center;
+    animation: psFadeUp 0.3s ease-out;
+}
+
+.ps-admin-help-title {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.ps-admin-help-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ps-admin-wa-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: 10px;
+    background: #25D366;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.ps-admin-wa-btn:hover {
+    background: #1fb855;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+/* ===== PDF VIEWER MODAL ===== */
+.ps-pdf-overlay {
+    padding: 0;
+    z-index: 1100;
+}
+
+.ps-pdf-viewer {
+    width: 100%;
+    height: 100%;
+    max-width: 100vw;
+    max-height: 100vh;
+    background: var(--bg-body, #0f172a);
+    display: flex;
+    flex-direction: column;
+    animation: psModalFadeIn 0.25s ease-out;
+    overflow: hidden;
+}
+
+.ps-pdf-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    background: var(--bg-card, #1e293b);
+    border-bottom: 1px solid var(--border-color, #334155);
+    flex-shrink: 0;
+    gap: 12px;
+}
+
+.ps-pdf-header-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+    color: var(--text-primary);
+}
+
+.ps-pdf-header-info svg {
+    flex-shrink: 0;
+    color: var(--accent-blue, #3b82f6);
+}
+
+.ps-pdf-title {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ps-pdf-nama {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin: 2px 0 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ps-pdf-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.ps-pdf-open-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 10px;
+    background: var(--accent-blue, #3b82f6);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.ps-pdf-open-btn:hover {
+    background: #2563eb;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.35);
+}
+
+.ps-pdf-close-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color, #334155);
+    background: var(--bg-input, #1e293b);
+    color: var(--text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.ps-pdf-close-btn:hover {
+    border-color: var(--accent-rose-border, #fecdd3);
+    color: var(--accent-rose, #f43f5e);
+    background: var(--accent-rose-light, #fff1f2);
+}
+
+.ps-pdf-body {
+    flex: 1;
+    position: relative;
+    min-height: 0;
+    background: #525659;
+}
+
+.ps-pdf-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .ps-sort-wrap {
+        min-width: 0;
+        flex: 1;
+    }
+
+    .ps-pdf-open-btn span {
+        display: none;
+    }
+
+    .ps-pdf-open-btn {
+        padding: 8px 10px;
+    }
+
+    .ps-pdf-header {
+        padding: 10px 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .ps-password-card {
+        padding: 32px 24px 28px;
+    }
+
+    .ps-password-digit {
+        width: 52px;
+        height: 60px;
+        font-size: 22px;
+    }
+
+    .ps-password-title {
+        font-size: 18px;
+    }
+}
+

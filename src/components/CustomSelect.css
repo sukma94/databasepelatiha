@@ -1,0 +1,122 @@
+/* ===== MODERN SELECT (Native <select> with premium styling) ===== */
+
+.modern-select-wrapper {
+    position: relative;
+    width: 100%;
+    font-family: 'Inter', -apple-system, system-ui, sans-serif;
+}
+
+.modern-select-wrapper.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.modern-select {
+    display: block;
+    width: 100%;
+    padding: 10px 40px 10px 14px;
+    background-color: var(--bg-input, #f1f5f9);
+    border: 1.5px solid var(--border-color, #e2e8f0);
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: inherit;
+    color: var(--text-primary, #0f172a);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-height: 44px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    line-height: 1.4;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.modern-select:not(.has-value) {
+    color: var(--text-muted, #94a3b8);
+    font-weight: 400;
+}
+
+/* Hover */
+.modern-select:hover:not(:disabled) {
+    border-color: var(--accent-blue, #3b82f6);
+    background-color: var(--bg-card, #ffffff);
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.08);
+}
+
+/* Focus */
+.modern-select:focus {
+    border-color: var(--accent-blue, #3b82f6);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+    background-color: var(--bg-card, #ffffff);
+}
+
+/* Disabled */
+.modern-select:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: var(--bg-body, #f0f4f8);
+}
+
+/* Custom chevron icon */
+.modern-select-chevron {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--text-muted, #94a3b8);
+    transition: color 0.2s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modern-select-wrapper:hover .modern-select-chevron,
+.modern-select:focus ~ .modern-select-chevron {
+    color: var(--accent-blue, #3b82f6);
+}
+
+/* Option styling (limited browser support, but helps) */
+.modern-select option {
+    padding: 10px 14px;
+    font-weight: 500;
+    font-size: 14px;
+    background: var(--bg-card, #ffffff);
+    color: var(--text-primary, #0f172a);
+}
+
+.modern-select option:checked {
+    font-weight: 700;
+}
+
+.modern-select optgroup {
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--text-muted, #94a3b8);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+/* Dark mode */
+[data-theme="dark"] .modern-select {
+    background-color: var(--bg-input, #0f1a2a);
+    border-color: var(--border-color, #1e3048);
+    color: var(--text-primary, #f1f5f9);
+}
+
+[data-theme="dark"] .modern-select:hover:not(:disabled) {
+    background-color: var(--bg-card, #1a2332);
+}
+
+[data-theme="dark"] .modern-select:focus {
+    background-color: var(--bg-card, #1a2332);
+}
+
+[data-theme="dark"] .modern-select option {
+    background: var(--bg-card, #1a2332);
+    color: var(--text-primary, #f1f5f9);
+}

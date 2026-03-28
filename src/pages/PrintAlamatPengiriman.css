@@ -1,0 +1,246 @@
+/* ===== Print Alamat Pengiriman Styles ===== */
+/* Modern Clean Design — Orange Theme */
+
+@media screen {
+    .print-label-wrapper {
+        display: none !important;
+    }
+}
+
+@media print {
+    /* Hide everything else */
+    body * {
+        visibility: hidden;
+    }
+    
+    /* Show only the print wrapper */
+    .print-label-wrapper, .print-label-wrapper * {
+        visibility: visible;
+    }
+
+    .print-label-wrapper {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        background: white !important;
+    }
+
+    /* Page settings */
+    @page {
+        size: A4 portrait;
+        margin: 12mm;
+    }
+
+    /* --- Modern Orange Aesthetic Layout --- */
+    .shipping-label-card {
+        page-break-inside: avoid;
+        break-inside: avoid;
+        width: 100%;
+        max-width: 170mm;
+        margin: 0 auto 15mm auto;
+        
+        border: 2.5px dashed #FDBA74; /* Orange-300 dashed border */
+        border-radius: 14px;
+        padding: 5mm;
+        box-sizing: border-box;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        color: #1E293B;
+        position: relative;
+        background: #fff;
+        overflow: hidden;
+    }
+
+    /* Decorative top accent bar */
+    .shipping-label-card::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #F97316, #FB923C, #FDBA74, #FB923C, #F97316);
+        border-radius: 14px 14px 0 0;
+    }
+
+    /* Print helper cut line indicator */
+    .shipping-label-card::before {
+        content: "✂ Cut here";
+        position: absolute;
+        top: -10px;
+        left: 20px;
+        font-size: 10px;
+        color: #FB923C;
+        background: white;
+        padding: 0 6px;
+        font-family: monospace;
+        letter-spacing: 0.5px;
+    }
+
+    /* Layout Grids */
+    .sl-inner-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    /* Header */
+    .sl-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2.5px solid #FED7AA; /* Orange-200 divider */
+        padding-bottom: 12px;
+        padding-top: 4px; /* Account for the accent bar */
+    }
+
+    .sl-brand-info {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .sl-brand-title {
+        font-size: 22px;
+        font-weight: 900;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        color: #EA580C; /* Orange-600 */
+        margin: 0;
+    }
+
+    .sl-ref-text {
+        font-size: 11px;
+        color: #64748B;
+        font-weight: 500;
+        margin: 0;
+    }
+
+    .sl-logo {
+        height: 75px; /* Increased from 52px to 75px */
+        object-fit: contain;
+    }
+
+    .sl-body {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        padding-top: 4px;
+    }
+
+    /* Sender strip — orange-tinted */
+    .sl-sender-strip {
+        background-color: #FFF7ED; /* Orange-50 */
+        border: 1.5px solid #FED7AA; /* Orange-200 */
+        border-radius: 8px;
+        padding: 8px 14px;
+        font-size: 14px; /* Increased */
+        color: #9A3412; /* Orange-800 */
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-weight: 500;
+    }
+
+    .sl-sender-strip strong {
+        color: #C2410C; /* Orange-700 */
+    }
+
+    .sl-left-col {
+        display: block;
+    }
+
+    /* Block Typography Info */
+    .sl-info-block {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .sl-label-small {
+        font-size: 10px;
+        font-weight: 700;
+        color: #94A3B8;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin: 0;
+    }
+
+    /* Social Media */
+    .sl-social {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-left: auto;
+    }
+
+    .sl-social-item {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 14px; /* Increased to match */
+        color: #9A3412; /* Orange-800 — matches sender strip */
+        font-weight: 600;
+    }
+
+    /* Accent labels — orange instead of blue/red */
+    .sl-label-accent {
+        font-size: 11px;
+        font-weight: 800;
+        color: #EA580C; /* Orange-600 — vibrant but not aggressive */
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin: 0 0 6px 0;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .sl-text-primary {
+        font-size: 20px;
+        font-weight: 800;
+        color: #0F172A;
+        margin: 0;
+        line-height: 1.2;
+    }
+
+    .sl-text-secondary {
+        font-size: 14px;
+        font-weight: 600;
+        color: #334155;
+        margin: 0;
+    }
+
+    .sl-text-body {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 1.4;
+        color: #0F172A;
+        margin: 0;
+    }
+
+    .sl-phone-badge {
+        display: inline-block;
+        background: #FFFFFF;
+        border: 1.5px solid #333;
+        padding: 4px 10px;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: 700;
+        color: #333;
+        margin-top: 6px;
+    }
+
+    /* System generated identifier */
+    .sl-sys-id {
+        font-size: 9px;
+        color: #94A3B8;
+        position: absolute;
+        bottom: 8px;
+        left: 5mm;
+        font-family: monospace;
+    }
+}
